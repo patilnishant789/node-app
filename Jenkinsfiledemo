@@ -12,7 +12,7 @@ pipeline{
     stage("push to dockerhub"){
       steps{
         withCredentials([string(credentialsId: 'dockerhub_pass', variable: 'dockerhub_pass')]) {
-            sh "docker login -u devopsnishant -p ${dockerhub_pass}
+            sh "docker login -u devopsnishant -p ${dockerhub_pass}"
             sh "docker push devopsnishant/nodeapp:${Docker_Tag}"
         }
       }
