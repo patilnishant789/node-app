@@ -6,7 +6,9 @@ pipeline{
   stages{
     stage("Build Docker Image"){
       steps{
-        sh "docker build . -t devopsnishant/nodeapp:${Docker_Tag}"
+        withCredentials([sshUserPrivateKey(credentialsId: 'ec2-user', keyFileVariable: 'ec2-user', passphraseVariable: '', usernameVariable: 'ec2-user')]) {
+          sh "docker build . -t devopsnishant/nodeapp:${Docker_Tag}"
+        }
       }
     }
   }
