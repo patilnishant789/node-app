@@ -6,7 +6,7 @@ pipeline{
   stages{
     stage("Build Docker Image"){
       steps{
-        sh "docker build . -t devopsnishant/nodeapp:${Docker_Tag}"
+        sh "sudo docker build . -t devopsnishant/nodeapp:${Docker_Tag}"
       }
     }
   }
